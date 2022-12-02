@@ -1,10 +1,6 @@
 const input = require("./input");
 
 (() => {
-  const X = 'X';
-  const Y = 'Y';
-  const Z = 'Z';
-
   const rock = 'A';
   const paper = 'B';
   const scissor = 'C';
@@ -12,10 +8,6 @@ const input = require("./input");
   const rock_points = 1;
   const paper_points = 2;
   const scissor_points = 3;
-
-  const rock_tree = [X, paper, scissor];
-  const paper_tree = [Y, scissor, rock];
-  const scissor_tree = [Z, rock, paper];
 
   let total_points = 0;
 
@@ -33,22 +25,22 @@ const input = require("./input");
     const opponent = moves[i][0];
     const me = moves[i][2];
 
-    if (me === X) {
+    if (me === 'X') {
       total_points += rock_points;
-      if (opponent === rock_tree[1]) lost();
-      else if (opponent === rock_tree[2]) won();
+      if (opponent === paper) lost();
+      else if (opponent === scissor) won();
       else draw();
       continue;
-    } else if (me === Y) {
+    } else if (me === 'Y') {
       total_points += paper_points;
-      if (opponent === paper_tree[1]) lost();
-      else if (opponent === paper_tree[2]) won();
+      if (opponent === scissor) lost();
+      else if (opponent === rock) won();
       else draw();
       continue;
     } else {
       total_points += scissor_points;
-      if (opponent === scissor_tree[1]) lost();
-      else if (opponent === scissor_tree[2]) won();
+      if (opponent === rock) lost();
+      else if (opponent === paper) won();
       else draw();
       continue;
     }
@@ -64,13 +56,13 @@ const input = require("./input");
     const opponent = moves[i][0];
     const result = moves[i][2];
 
-    if (result === X) {
+    if (result === 'X') {
       lost()
       if (opponent === rock) total_points += scissor_points;
       else if (opponent === paper) total_points += rock_points;
       else total_points += paper_points;
       continue;
-    } else if (result === Y) {
+    } else if (result === 'Y') {
       draw()
       if (opponent === rock) total_points += rock_points;
       else if (opponent === paper) total_points += paper_points;
