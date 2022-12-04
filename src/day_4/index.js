@@ -6,24 +6,23 @@ const input = require("./input");
   let total_overlaps = 0;
 
   const build_range = (range) => {
-    const [start, end] = range.split("-");
+    let [start, end] = range.split("-");
 
-    if (start === end) return [Number.parseInt(start, 10)];
+    if (start === end) return [parseInt(start, 10)];
 
     const set = [];
 
-    for (let i = Number.parseInt(start, 10); i <= Number.parseInt(end, 10); i++) {
-      set.push(i)
-    }
+    start = parseInt(start, 10);
+    end = parseInt(end, 10);
+    for (let i = start; i <= end; i++) set.push(i)
 
     return set
   }
 
   const contains_set = (left, right, fn) => {
-    const left_contained = left[fn](number => right.includes(number));
-    const right_contained = right[fn](number => left.includes(number));
-
-    return left_contained || right_contained;
+    if (left[fn](number => right.includes(number))) return true;
+    if (right[fn](number => left.includes(number))) return true;
+    return false;
   }
 
   for (let i = 0; i < pairs.length; i++) {
@@ -31,13 +30,8 @@ const input = require("./input");
     const range_one = build_range(elf_one);
     const range_two = build_range(elf_two);
 
-    if (contains_set(range_one, range_two, 'every')) {
-      total_fully_contains += 1;
-    }
-
-    if (contains_set(range_one, range_two, 'some')) {
-      total_overlaps += 1;
-    }
+    if (contains_set(range_one, range_two, 'every')) total_fully_contains += 1;
+    if (contains_set(range_one, range_two, 'some')) total_overlaps += 1;
   }
 
   console.log(total_fully_contains);

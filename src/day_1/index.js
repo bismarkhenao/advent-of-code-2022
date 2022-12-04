@@ -15,16 +15,12 @@ const input = require("./input");
   let highest_calorie = 0;
   let highest_calories_tree = new Array(3);
 
-  // Part one
-  // O(n)
   calories.forEach(calorie => {
     if (calorie > highest_calorie) {
       highest_calorie = calorie;
     }
   })
 
-  // Part two
-  // O(n)
   for (let i = 0; i < calories.length; i++) {
     if (highest_calories_tree[0] === undefined) {
       highest_calories_tree[0] = calories[i];

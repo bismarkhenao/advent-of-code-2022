@@ -19,8 +19,6 @@ const input = require("./input");
 
   const moves = input.split("\n");
 
-  // Part one
-  // O(n)
   for (let i = 0; i < moves.length; i++) {
     const opponent = moves[i][0];
     const me = moves[i][2];
@@ -50,8 +48,6 @@ const input = require("./input");
 
   total_points = 0;
 
-  // Part two
-  // O(n)
   for (let i = 0; i < moves.length; i++) {
     const opponent = moves[i][0];
     const result = moves[i][2];
