@@ -1,3 +1,5 @@
+[![build-test](https://github.com/bismarkhenao/advent-of-code-2022/actions/workflows/node.js.yml/badge.svg)](https://github.com/bismarkhenao/advent-of-code-2022/actions/workflows/node.js.yml)
+
 # advent-of-code-2022
 The advent of code puzzles written in ES6 - https://adventofcode.com/
 
