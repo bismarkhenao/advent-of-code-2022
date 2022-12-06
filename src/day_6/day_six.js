@@ -1,7 +1,7 @@
 const day_six = (input) => {
   const getMarker = (input, count) => {
     for (let i = 0; i < input.length; i++) {
-      const set = new Set(input.substr(i, count));
+      const set = new Set(input.substring(i, count + i));
       if (set.size === count) return i + count;
     }
   };
