@@ -1,4 +1,4 @@
 const input = require("./input");
 const day_two = require("./day_two");
 
-day_two(input);
+console.log(day_two(input));
